@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+</head>
+<body>
+<div th:fragment="registerfilms">
+    <div aria-hidden="true" aria-labelledby="modalAgregar" class="modal fade" id="modalAgregar"
+         tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-title" id="tituloModalCambiar">Registrar película</span>
+                    <button aria-label="Close" class="modal-x" data-dismiss="modal" type="button">&times;</button>
+                </div>
+                <form id="formCreateFilm" method="POST" th:action="@{/films}">
+                    <!--<input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}"/>-->
+                    <div class="modal-body">
+                        <div class="form-row">
+                            <div class="form-group col-6">
+                                <label for="inputTitle">Nombre</label>
+                                <input class="form-control" id="inputTitle" name="title"
+                                       placeholder="Escribe el titulo" required
+                                       type="text"/>
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="inputYear">Año</label>
+                                <input class="form-control" id="inputYear" min="1895" name="releaseYear" required
+                                       type="number"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputDescription">Descripción</label>
+                            <input class="form-control" id="inputDescription" name="description"
+                                   placeholder="Descripción" required
+                                   type="text"/>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-6">
+                                <label for="inputLanguage">Idioma</label>
+                                <select class="language form-control col-md-12" id="inputLanguage" name="languageId"
+                                        required></select>
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="inputOriginalLanguage">Idioma Original</label>
+                                <select class="originalLanguage form-control" id="inputOriginalLanguage"
+                                        name="originalLanguageId"></select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-6">
+                                <label for="inputLength">Duración (min)</label>
+                                <input class="form-control" id="inputLength" min="1" name="length" required
+                                       type="number"/>
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="inputRentalDuration">Duración de la renta</label>
+                                <input class="form-control" id="inputRentalDuration" min="1" name="rentalDuration"
+                                       required
+                                       type="number"/>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-6">
+                                <label for="inputRentalRate">Precio de renta</label>
+                                <input class="form-control" id="inputRentalRate" min="1" name="rentalRate"
+                                       required
+                                       step="0.01" type="number"/>
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="inputReplacementCost">Costo de remplazo</label>
+                                <input class="form-control" id="inputReplacementCost" min="1" name="replacementCost"
+                                       required
+                                       step="0.01" type="number"/>
+                            </div>
+                        </div>
+                        <label>Clasificación</label>
+                        <div class="col-12 rating d-flex align-items-center justify-content-center">
+                            <label>
+                                <input name="rating" required type="radio" value="G">
+                                <img alt="" src="../assets/imgs/mpa/G.png">
+                            </label>
+                            <label>
+                                <input name="rating" type="radio" value="PG">
+                                <img alt="" src="../assets/imgs/mpa/PG.png">
+                            </label>
+                            <label>
+                                <input name="rating" type="radio" value="PG-13">
+                                <img alt="" src="../assets/imgs/mpa/PG-13.png">
+                            </label>
+                            <label>
+                                <input name="rating" type="radio" value="R">
+                                <img alt="" src="../assets/imgs/mpa/R.png">
+                            </label>
+                            <label>
+                                <input name="rating" type="radio" value="NC-17">
+                                <img alt="" src="../assets/imgs/mpa/NC-17.png">
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputActors">Actores</label>
+                            <select class="actor form-control" id="inputActors" multiple name="actorId"
+                                    required></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputCategory">Categoría</label>
+                            <select class="category form-control" id="inputCategory" multiple name="categoryId"
+                                    required></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputSpecialFeatures">Características Especiales</label>
+                            <select class="special_features form-control" id="inputSpecialFeatures" multiple
+                                    name="specialFeatures"
+                                    required></select>
+                        </div>
+
+                        <label for="inputStore">Videoclub
+                            <button class="btn btn-primary" onclick="addStoreInv()" type="button">
+                                <span class="bi bi-shop"></span>
+                            </button>
+                        </label>
+                        <div id="stores"></div>
+
+                        <div class="form-group">
+                            <label for="inputPoster">Póster</label>
+                            <div class="drag-drop-container" id="drag-drop-container">
+                                <input accept="image/*" class="file-input" id="file-input" type="file">
+                                <div class="preview-container" id="preview-container">
+                                    <img alt="" class="preview-image" id="preview-image" src="#">
+                                </div>
+                                <div class="drag-drop-text" id="drag-drop-text">
+                                    <span>Arrastra y suelta aquí</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn gray-btn" type="reset">Cancelar
+                        </button>
+                        <button class="btn green-btn" id="botonGuardar2" type="submit">Registrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

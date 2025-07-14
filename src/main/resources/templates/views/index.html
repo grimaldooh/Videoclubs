@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="layout/layout :: estilos"></div>
+    <meta charset="ISO-8859-1">
+    <title>Rental</title>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Video Club</title>
+    <link rel="stylesheet" th:href="@{../assets/css/buscador.css}"/>
+</head>
+<body>
+<div class="box">
+    <div th:replace="layout/layout :: header"></div>
+
+    <div class="uabc-content" style="padding-right: 3%; padding-left: 3%;">
+        <div class="row">
+            <div class="offset-9 col-2">
+                <div class="wrapper">
+                    <div class="buscador">
+                        <i class="bi bi-search"></i>
+                        <input id="buscadorPeliculas" placeholder="Buscar" type="text"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-container" id="gridContainer">
+            <div class="d-flex flex-wrap" id="mosaicoPeliculas" style="justify-content: center">
+            </div>
+        </div>
+
+        <nav aria-label="Pagination">
+            <div class="pagination justify-content-center dataTables_wrapper" id="paginationContainer">
+                <!-- Links de paginaci�n se insertar�n din�micamente aqu� -->
+            </div>
+        </nav>
+
+    </div>
+
+    
+
+</div>
+    
+<div class="modal fade" id="detalleModal" tabindex="-1" aria-labelledby="detalleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+  	<div class="modal-content modal-info">
+  		<div class="modal-header">
+        <span class="modal-title" id="exampleModalLabel">Informaci&oacute;n</span>
+        <button type="button" class="modal-x" data-dismiss="modal" aria-label="Close">&times;</button>
+      </div>
+
+	      <div class="modal-body">
+
+			<div class="row">
+				<div class="col-4 p-0">
+					<img id="det_poster" width="100%" src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img/https://printworks-manchester.com/cinema-poster/images/film-poster-placeholder.png">
+				</div>
+				<div class="col-8 pr-0">
+					<h5 id="det_title">Titulo de la pelicula</h5>
+					<div class="container p-0">
+						<span class="badge badge-primary">
+							<i class="fas fa-language mr-1"></i>						
+							<span id="det_language">Idioma</span>
+						</span>
+						<span class="badge badge-dark">						
+							<span id="det_rating">Clasif</span>
+						</span>
+						<span class="badge badge-success">
+							<i class="fas fa-clock mr-1"></i>						
+							<span id="det_length">Duracion</span>
+						</span>
+						<span class="badge badge-dark">
+							<i class="fas fa-video mr-1"></i>						
+							<span id="det_category">Genero</span>
+						</span>
+					</div>
+				<div class="container p-0 mt-3" id="det_description"></div><hr>
+				
+				<div class="container p-0">
+				<b>Reparto:</b>
+				<p id="det_reparto"></p>
+				</div><hr>
+				
+				<div class="container p-0">
+				Precio de renta:
+				<b id="det_rentalRate">$ 0.99</b>
+				
+				</div>
+					
+				
+				</div>
+			
+			
+			</div>
+
+
+
+
+	      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn green-btn" data-dismiss="modal">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    <div th:replace="layout/layout :: footer"></div>
+    <div th:replace="layout/layout :: scripts"></div>
+    <script th:src="@{assets/js/landing.js}"></script>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es-MX" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="layout/layout :: estilos"></div>
+
+<body>
+<div th:replace="layout/layout :: header"></div>
+<div class="uabc-content" style="padding-right: 3%; padding-left: 3%;">
+	<button class="btn green-btn" data-backdrop="static" data-keyboard="false" data-target="#modalAgregar" id="agregarCliente"
+                        data-toggle="modal"
+                        sec:authorize="isAuthenticated()">Agregar Cliente
+                </button>
+                <br><br>
+	<table class="table-bordered uabc-tables" id="tabla" style="width:100%">
+       <thead>
+		<tr style="background-color: #239B56;">
+        	<th class="text-white" scope="col">Id</th>
+        	<th class="text-white" scope="col">Nombre</th>
+        	<th class="text-white" scope="col">E-mail</th>
+        	<th class="text-white" scope="col">Acciones</th>
+        </tr>
+	  </thead>
+	</table>
+</div>
+
+<div th:replace="views/fragments/modal/registerCustomer :: registerCustomer"></div>
+<div th:replace="views/fragments/modal/detailsCustomer :: detailsCustomer"></div>
+<div th:replace="layout/layout :: footer"></div>
+<div th:replace="layout/layout :: scripts"></div>
+
+<script th:src="@{assets/js/customers/customers.js}"></script>
+</body>
+
+
+
+</html>

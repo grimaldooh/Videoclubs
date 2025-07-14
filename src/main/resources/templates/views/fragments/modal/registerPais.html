@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+</head>
+
+<body>
+<div th:fragment="registerPais">
+    <div aria-hidden="true" aria-labelledby="modalDetalles" class="modal fade " id="modal-registrar-pais" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content modal-info">
+                <div class="modal-header">
+                    <span class="modal-title" id="registro-pais">Registrar Pais</span>
+                    <button aria-label="Close" class="modal-x" data-dismiss="modal" type="button">&times;</button>
+                </div>
+                <div class="modal-body">
+                	<form id="form-registro-pais" method="POST" >
+                		
+               		
+                		<div class="form-row">
+                			<div class="container">
+                				<div class="form-group">
+                					<label class="form-txt-required" for="form_nombrePais">Nombre del pais</label>
+                					<input class="form-control" name = registroPais type="text" placeholder="Ingresa el nombre del pais" required
+                							 
+                							data-error="Se requiere nombre del pais">
+                				</div>
+                			</div>
+
+                         			                			               			              			             			               			
+                		</div>
+                	</form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn gray-btn" data-dismiss="modal" id="botonCerrar3" type="button">Cerrar
+                    </button>
+                    <button class="btn green-btn" id="botonRegistroPais" type="button">Registrar Pais</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

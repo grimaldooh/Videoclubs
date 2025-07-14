@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+</head>
+
+<body>
+<div th:fragment="registerCustomer">
+    <div aria-hidden="true" aria-labelledby="modalDetalles" class="modal fade " id="modal-registrar-cliente" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content modal-info">
+                <div class="modal-header">
+                    <span class="modal-title" id="registro-cliente">Registrar cliente</span>
+                    <button aria-label="Close" class="modal-x" data-dismiss="modal" type="button">&times;</button>
+                </div>
+                <div class="modal-body">
+                	<form id="form-registro-cliente" method="POST" th:object="${customer}">
+                		<input th:field="*{idCiudad}" type="hidden">
+                		<input th:field="*{idTienda}" type="hidden">
+               		
+                		<div class="form-row">
+                			<div class="container">
+                				<div class="form-group">
+                					<label class="form-txt-required" for="form_nombre">Nombre</label>
+                					<input class="form-control" type="text" placeholder="Nombre" required
+                							th:field="*{firstName}" 
+                							data-error="Se requiere nombre">
+                				</div>
+                			</div>
+
+                			<div class="container">
+                				<div class="form-group">
+                					<label class="form-txt-required" for="form_apellido">Apellido</label>
+                					<input class="form-control" type="text" placeholder="Apellido" required
+                							th:field="*{lastName}" 
+                							data-error="Se requiere apellido">
+                				</div>
+                			</div>               			
+
+                			<div class="container">
+                				<div class="form-group">
+                					<label class="form-txt-required" for="form_correo">Correo</label>
+                					<input class="form-control" type="text" placeholder="Correo" required
+                							th:field="*{email}" 
+                							data-error="Se requiere correo">
+                				</div>
+                			</div>
+
+                			<div class="container">
+                				<div class="form-group">
+                					<label class="form-txt-required" for="form_tel">Teléfono</label>
+                					<input class="form-control" type="text" placeholder="Teléfono" required
+                							th:field="*{address.phone}" 
+                							data-error="Se requiere teléfono">
+                				</div>
+                			</div> 
+
+                			<div class="container">
+                				<div class="form-group">
+                					<label class="form-txt-required" for="form_pais">País</label>
+                					<select class="form-control" id="selectCountry" name="selectCountry">
+                						<option value="-1">Selecciona una opción</option>
+                						<option th:each="country : ${countries}"
+                								th:text="${country.name}"
+                								th:value="${country.countryId}">
+                						</option>
+                					</select>
+                				</div>
+                			</div>  
+
+                			<div class="container">
+                				<div class="form-group">
+                					<label class="form-txt-required" for="form_pais">Ciudad</label>
+                					<select class="form-control" id="selectCity" name="selectCity">
+                						<option value="-1" selected>Selecciona una opción</option>
+                					</select>
+                				</div>
+                			</div>
+                			
+                			<div class="container">
+                				<div class="form-group">
+                					<label class="form-txt-required" for="form_dir">Dirección</label>
+                					<input class="form-control" type="text" placeholder="Dirección" required
+                							th:field="*{address.address}" 
+                							data-error="Se requiere dirección">
+                				</div>
+                			</div> 
+                			
+                			<div class="container">
+                				<div class="form-group">
+                					<label class="form-txt-required" for="form_distrito">Distrito</label>
+                					<input class="form-control" type="text" placeholder="Distrito" required
+                							th:field="*{address.district}" 
+                							data-error="Se requiere un distrito">
+                				</div>
+                			</div> 
+
+                			<div class="container">
+                				<div class="form-group">
+                					<label class="form-txt-required" for="form_codigo">Código postal</label>
+                					<input class="form-control" type="text" placeholder="Código postal" required
+                							th:field="*{address.postalCode}" 
+                							data-error="Se requiere código postal">
+                				</div>
+                			</div> 
+
+                			<div class="container">
+                				<div class="form-group">
+                					<label class="form-txt-required" for="form_sucursal">Sucursal</label>
+                					<select class="form-control" id="selectSucursal" name="selectSucursal">
+                						<option value="-1">Selecciona una opción</option>
+                						<option th:each="sucursal : ${sucursal}"
+                								th:text="${sucursal.storeId}+ ' - ' +${sucursal.name}"
+                								th:value="${sucursal.storeId}">
+                						</option>
+                					</select>
+                				</div>
+                			</div>              			                			               			              			             			               			
+                		</div>
+                	</form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn gray-btn" data-dismiss="modal" id="botonCerrar3" type="button">Cerrar
+                    </button>
+                    <button class="btn green-btn" id="botonRegistro" type="button">Registrar Cliente</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

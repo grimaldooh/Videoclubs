@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+</head>
+
+<body>
+<div th:fragment="detailsCustomer">
+    <div aria-hidden="true" aria-labelledby="modalDetalles" class="modal fade " id="modal-detalles-customer" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content modal-info">
+                <div class="modal-header">
+                    <span class="modal-title" id="registro-cliente">Registrar cliente</span>
+                    <button aria-label="Close" class="modal-x" data-dismiss="modal" type="button">&times;</button>
+                </div>
+                <div class="modal-body">
+                	               		
+                		<div class="form-row">
+                			<div class="container">
+                				<div class="form-group">
+                					<label class="form-txt" for="customerName">Nombre</label>
+                					<input class="form-control" type="text" id="customerName" disabled >
+                				</div>
+                			</div>
+
+                 		
+                			<div class="container">
+                				<div class="form-group">
+                					<label class="form-txt" for="customerLastName">Apellido</label>
+                					<input class="form-control" type="text" id="customerLastName" disabled >
+                				</div>
+                			</div>
+
+                 		
+                			<div class="container">
+                				<div class="form-group">
+                					<label class="form-txt" for="customerEmail">Correo</label>
+                					<input class="form-control" type="text" id="customerEmail" disabled >
+                				</div>
+                			</div>                			              			                			               			              			             			               			
+                		</div>
+
+                 		
+                			<div class="container">
+                				<div class="form-group">
+                					<label class="form-txt" for="customerPhone">Telefono</label>
+                					<input class="form-control" type="text" id="customerPhone" disabled >
+                				</div>
+                			</div>
+
+                 		
+                			<div class="container">
+                				<div class="form-group">
+                					<label class="form-txt" for="customerCountry">Pais</label>
+                					<input class="form-control" type="text" id="customerCountry" disabled >
+                				</div>
+                			</div>
+
+                  		
+                			<div class="container">
+                				<div class="form-group">
+                					<label class="form-txt" for="customerCity">Ciudad</label>
+                					<input class="form-control" type="text" id="customerCity" disabled >
+                				</div>
+                			</div>
+                			               			                			             
+                   		
+                			<div class="container">
+                				<div class="form-group">
+                					<label class="form-txt" for="customerAddress">Direccion</label>
+                					<input class="form-control" type="text" id="customerAddress" disabled >
+                				</div>
+                			</div>
+                			
+                    		
+                			<div class="container">
+                				<div class="form-group">
+                					<label class="form-txt" for="customerPostalCode">Codigo Postal</label>
+                					<input class="form-control" type="text" id="customerPostalCode" disabled >
+                				</div>
+                			</div>  
+                			
+                    		
+                			<div class="container">
+                				<div class="form-group">
+                					<label class="form-txt" for="customerStore">Sucursal</label>
+                					<input class="form-control" type="text" id="customerStore" disabled >
+                				</div>
+                			</div> 
+                			                			              			                			               			                			             
+                </div>
+                <div class="modal-footer">
+                    <button class="btn gray-btn" data-dismiss="modal" id="botonDefault" type="button">Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

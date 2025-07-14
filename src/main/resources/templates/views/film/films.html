@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es-MX" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="layout/layout :: estilos"></div>
+<link rel="stylesheet" th:href="@{../assets/css/addfilms.css}"/>
+<link rel="stylesheet" th:href="@{../assets/css/draganddrop.css}"/>
+
+<body>
+<div th:replace="layout/layout :: header"></div>
+<div class="uabc-content" style="padding-right: 3%; padding-left: 3%;">
+    <div class="d-flex" id="wrapper">
+        <div id="page-content-wrapper" style="width:100%;">
+            <!-- Page content-->
+            <div class="container-fluid" style="margin-top:15px;margin-bottom:10px;">
+                <button class="btn green-btn" data-backdrop="static" data-keyboard="false" data-target="#modalAgregar"
+                        data-toggle="modal"
+                        sec:authorize="isAuthenticated()">Agregar película
+                </button>
+
+                <br><br>
+                <table class="table-bordered uabc-tables" id="tabla" style="width:100%">
+                    <thead>
+                    <tr style="background-color: #239B56;">
+                        <th class="text-white" scope="col">Película</th>
+                        <th class="text-white" scope="col">Categoría</th>
+                        <th class="text-white" scope="col">Copias disponibles</th>
+                        <th class="text-white" scope="col">Acciones</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Modal detalles -->
+    <div th:replace="views/fragments/modal/detailsfilms :: detailsfilms"></div>
+
+    <div th:replace="views/fragments/modal/registerfilms :: registerfilms"></div>
+
+</div>
+<div th:replace="layout/layout :: footer"></div>
+<div th:replace="layout/layout :: scripts"></div>
+<script th:src="@{../assets/js/films/films.js}"></script>
+<script th:src="@{../assets/js/films/addfilms.js}"></script>
+<script th:src="@{../assets/js/films/storeinventory.js}"></script>
+<script th:src="@{../assets/js/films/draganddrop.js}"></script>
+</body>
+
+</html>

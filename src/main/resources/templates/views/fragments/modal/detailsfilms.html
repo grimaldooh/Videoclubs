@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+</head>
+
+<body>
+<div th:fragment="detailsfilms">
+    <div aria-hidden="true" aria-labelledby="modalDetalles" class="modal fade " id="modalDetalles" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content modal-info">
+                <div class="modal-header">
+                    <span class="modal-title" id="tituloModalDetalles">Detalles</span>
+                    <button aria-label="Close" class="modal-x" data-dismiss="modal" type="button">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="shadow-lg p-3 mb-5 bg-body rounded">
+                        <table class="table table-hover">
+                            <tbody>
+                            <tr>
+                                <td style="width: 30%;">
+                                    <p class="fw-bold">Título:</p>
+                                </td>
+                                <td colspan="3">
+                                    <h6 class="" id="detalleTitulo">ACADEMY DINOSAUR</h6>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 30%;">
+                                    <p class="fw-bold">ID:</p>
+                                </td>
+                                <td>
+                                    <p class="" id="detalleNumPelicula">1</p>
+                                </td>
+                                <td colspan="2" rowspan="6">
+                                    <img alt="..." class="card-img-top poster" id="poster"
+                                         onerror="this.src='https://imagenes.elpais.com/resizer/n48DlQR-crZegLmg09HVeig_Qf0=/414x0/filters:focal(1133x620:1143x630)/cloudfront-eu-central-1.images.arcpublishing.com/prisa/ZZIDTAAXOZEQXPZ2BP3VGO7KIY.jpg';"
+                                         src="https://imagenes.elpais.com/resizer/n48DlQR-crZegLmg09HVeig_Qf0=/414x0/filters:focal(1133x620:1143x630)/cloudfront-eu-central-1.images.arcpublishing.com/prisa/ZZIDTAAXOZEQXPZ2BP3VGO7KIY.jpg"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="fw-bold">Precio de renta:</p>
+                                </td>
+                                <td><b>
+                                    <p class="" id="detallePrecio">$12</p>
+                                </b></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="fw-bold">Lanzamiento:</p>
+                                </td>
+                                <td>
+                                    <p class="" id="detalleLanzamiento">2026</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="fw-bold">Duración:</p>
+                                </td>
+                                <td>
+                                    <p class="" id="detalleDuracion">117 min</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="fw-bold">Categoria:</p>
+                                </td>
+                                <td>
+                                    <p class="" id="detalleCategorias">Documentary</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="fw-bold">Lenguaje:</p>
+                                </td>
+                                <td>
+                                    <p class="" id="detalleLenguaje">2026</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="fw-bold">Clasificación:</p>
+                                </td>
+                                <td>
+                                    <p class="" id="detalleClasificacion">G</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="fw-bold">Descripción:</p>
+                                </td>
+                                <td colspan="3">
+                                    <p class="" id="detalleDescripcion">A Epic Drama of a Feminist And a Mad
+                                        Scientist who must Battle a Teacher in The Canadian Rockies</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="fw-bold">Actores:</p>
+                                </td>
+                                <td colspan="3">
+                                    <ul class="list-group list-group-numbered" id="detalleActores">
+                                        <li>PENELOPE GUINESS</li>
+                                        <li>NICK WAHLBERG</li>
+                                        <li>ED CHASE</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="fw-bold">Características especiales:</p>
+                                </td>
+                                <td colspan="3">
+                                    <ul class="list-group list-group-numbered" id="specialfeatures">
+                                        <li>PENELOPE GUINESS</li>
+                                        <li>NICK WAHLBERG</li>
+                                        <li>ED CHASE</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn gray-btn" data-dismiss="modal" id="botonCerrar3" type="button">Cerrar
+                    </button>
+                    <button class="btn gray-btn" id="botonExportarPDF" type="button"><i
+                        class="bi bi-file-earmark-pdf-fill">Exportar</i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

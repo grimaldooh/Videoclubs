@@ -1,0 +1,22 @@
+[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+[type=radio] + img {
+  cursor: pointer;
+}
+
+[type=radio]:checked + img {
+  outline: 2px solid #006b40;
+}
+
+label > img {
+    height: 70px;
+}
+
+.rating > label {
+    padding-right: 10px;
+}

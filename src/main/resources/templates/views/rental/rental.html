@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <div th:replace="layout/layout :: estilos"></div>
+    <meta charset="ISO-8859-1">
+    <title>Rental</title>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{assets/css/jquery.datetimepicker.css}"/>
+</head>
+
+<body>
+<div th:replace="layout/layout :: header"></div>
+
+<div class="uabc-content" style="padding-right: 3%; padding-left: 3%;">
+    <div class="d-flex" id="wrapper">
+        <div id="page-content-wrapper" style="width:100%;">
+            <!-- Page content-->
+            <div class="container-fluid m-2">
+                <div class="row">
+                    <div class="col-sm-12 ">
+                        <h2 class="text-muted">Rentas</h2>
+                    </div>
+                    <div class="col-sm-12 mb-3 d-flex">
+                        <div class="btn-group" role="group">
+                            <button class="btn green-btn" id="agregarRenta"><i class="fas fa-plus fa-fw"></i>
+                                Registrar
+                            </button>
+                            <button class="btn red-btn" id="devolucion">
+                            	<i class="fas fa-sign-in-alt"></i> Devoluci&oacute;n
+                            </button>
+                        </div>
+
+                        <div class="btn-group ml-auto" role="group">
+                            <button class="btn gray-btn" filter="all" id="filtrarTabla">Mostrar todas</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 ">
+                        <div class="card mw-100  mx-0">
+                            <div class="card-body">
+                                <table class="table table-hover table-bordered uabc-tables" id="tableRental">
+                                    <thead>
+                                    <tr style="background-color: #239B56;">
+                                        <th class="text-white" scope="col">Id Renta</th>
+                                        <th class="text-white" scope="col">Fecha de renta</th>
+                                        <th class="text-white" scope="col">ID Inventario</th>
+                                        <th class="text-white" scope="col">Cliente</th>
+                                        <th class="text-white" scope="col">Fecha de regreso</th>
+                                        <th class="text-white" scope="col">Empleado</th>
+                                        <th class="text-white text-center" style="width: 10% !important;">Acciones</th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal filtro titulo -->
+<div aria-hidden="true" aria-labelledby="modalReturn" class="modal fade in" id="modalReturn" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title" id="title-modal-return">Devoluci&oacute;n por cliente</span>
+                <button aria-label="Close" class="modal-x" data-dismiss="modal" type="button">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group row">
+                    <label class="col-sm-5 col-md-6 col-form-label" for="inputBusqueda">&#191;Desea consultar
+                        devoluciones realizadas?</label>
+                    <div class="form-check col-sm-1">
+                        <input class="form-check-input" id="consultarDevos" type="checkbox" value="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-md-2 col-form-label" for="inputBusqueda">Cliente:</label>
+                    <div class="col-sm-3 col-md-3">
+                        <input class="form-control" id="inputBusqueda" placeholder="ID CLIENTE" style="margin: 2px 6px;"
+                               type="text">
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="btn green-btn" id="buscarCliente" type="button">Buscar</button>
+                    </div>
+                </div>
+                <p><b>Seleccione la pelicula que desea devolver.</b></p>
+                <div class="form-group" id="divTablaPeliculasAgregadas">
+                    <table class="table table-hover" id="tablaPeliculasAgregadas">
+                        <thead>
+                        <tr style="background-color: #239B56;">
+                            <th class="text-white" scope="col">Id Renta</th>
+                            <th class="text-white" scope="col">Fecha de renta</th>
+                            <th class="text-white" scope="col">ID Inventario</th>
+                            <th class="text-white" scope="col">Cliente</th>
+                            <th class="text-white" scope="col">Fecha de regreso</th>
+                            <th class="text-white" scope="col">Empleado</th>
+                            <th class="text-white text-center" style="width: 10% !important;">Acciones</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-md-3 col-form-label" for="fecha_devolucion" id='lbl_fecha_devo'>Fecha
+                        devoluci&oacute;n:</label>
+                    <div class="col-sm-3 col-md-4">
+                        <div class="input-group">
+                            <input aria-describedby="fecha_devolucion" class="form-control" id='fecha_devolucion'
+                                   placeholder="aaaa-mm-dd hh:mm"
+                                   type='text'/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-sm-3 col-form-label" for="multaGeneradaMasivo" id='lbl_multas'>Cantidad
+                        multa:</label>
+                    <div class="col-sm-3 col-md-4">
+                        <div class="input-group">
+                            <input class="form-control" disabled id='multaGeneradaMasivo' placeholder="0.00"
+                                   type='text'/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn gray-btn" data-dismiss="modal" id="">Cerrar</button>
+                <button class="btn green-btn" id="guardarDevolucionMasiva">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div aria-hidden="true" aria-labelledby="modalFiltroTitulo" class="modal fade in" id="modalRegistro" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title" id="title-modal"></span>
+                <button aria-label="Close" class="modal-x" data-dismiss="modal" type="button">&times;</button>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <button class="btn gray-btn" data-dismiss="modal" id="botonDefault">Cerrar</button>
+                <button class="btn green-btn" id="buttonSuccess">Registrar</button>
+                <button class="btn gray-btn" id="buttonPDF"><i class="fas fa-file-pdf"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="layout/layout :: footer"></div>
+<div th:replace="layout/layout :: scripts"></div>
+<script th:src="@{assets/js/jquery.datetimepicker.full.js}"></script>
+<script th:src="@{assets/js/app/rental.js}"></script>
+<script th:src="@{assets/js/app/return.js}" type="module"></script>
+</body>
+
+</html>

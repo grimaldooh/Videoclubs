@@ -1,0 +1,65 @@
+body {
+  display: grid;
+}
+
+.wrapper {
+  text-align: center;
+  width: 230px;
+}
+
+.buscador {
+  display: inline-flex;
+  padding: 5px;
+  border-radius: 50px;
+  transition: 0.4s;
+}
+
+.buscador:hover {
+  background: rgba(255, 195, 0, 1);
+}
+
+.buscador:focus-within {
+  background: rgba(255, 195, 0, 1);
+}
+
+.buscador:hover input {
+  max-width: 180px;
+}
+
+.buscador:focus-within input {
+  max-width: 180px;
+}
+
+.buscador input {
+  background: transparent;
+  border: 0;
+  max-width: 0;
+  padding: 0;
+  text-indent: 12px;
+  color: #ffffff;
+  font-size: 22px;
+  font-family: "Poppins";
+  outline: none;
+  transition: 0.4s;
+}
+
+.buscador input::placeholder {
+  color: rgba(255, 255, 255, 1);
+}
+
+.buscador i {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  background: #006b40;
+  color: #f9f9f9;
+  border-radius: inherit;
+  font-size: 24px;
+  pointer-events: none;
+}
+
+.buscador-poster {
+    object-fit:contain;
+    max-height:360px;
+}

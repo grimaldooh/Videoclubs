@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div th:replace="layout/layout :: estilos"></div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div th:replace="layout/layout :: header"></div>  <!--posible cambio-->
+    <div class="uabc-content" style="padding-right: 3%; padding-left: 3%;">
+        <button class="btn green-btn" data-backdrop="static" data-keyboard="false" data-target="#modal-registrar-pais" id="agregarPais"
+                            data-toggle="modal"
+                            >Agregar Pais
+                    </button>
+                    <br><br>
+        
+            <div class="col-sm-12 ">
+                <div class="card mw-100  mx-0">
+                    <div class="card-body">
+                        <table class="table table-hover table-bordered uabc-tables" id="tablePaises">
+                            <thead>
+
+                            <tr style="background-color: #239B56;">
+                                <th class="text-white" scope="col">Id del pais</th>
+                                
+                                <th class="text-white" scope="col">Nombre del pais</th>
+
+                                <th class="text-white" scope="col">Ultima actualizacion</th>
+                                
+                                <th class="text-white text-center" style="width: 10% !important;">Acciones</th>
+                                
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </table>
+    </div>
+    <div th:replace="views/fragments/modal/registerPais :: registerPais"></div>
+    <div th:replace="views/fragments/modal/detailsPais :: detailsPais"></div>
+    <div th:replace="layout/layout :: footer"></div>
+<div th:replace="layout/layout :: scripts"></div>
+<script th:src="@{assets/js/app/country.js}"></script>
+
+</body>
+</html>
